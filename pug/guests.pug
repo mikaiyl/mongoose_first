@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  -attending = guestsList.filter( ( guest ) => guest.response === true )
+  -notAttending = guestsList.filter( ( guest ) => guest.response === false )
+  each guest in attending
+    p #{ guest.name } is attending and bring #{ guest.number } additional guests!
+  each guest in notAttending
+    p #{ guest.name } is not  attending.
